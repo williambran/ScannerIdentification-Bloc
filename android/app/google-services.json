@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "377999214586",
+    "project_id": "securityunamapp",
+    "storage_bucket": "securityunamapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377999214586:android:aa47f160b1f0ade5ad0643",
+        "android_client_info": {
+          "package_name": "com.example.SegurityUnamApp.segurity_anam_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377999214586-943r0ala0f8ndagrgbsmpqbqomqt4k74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9UOU-zh1pjb5sO2Byrl6iPiYJNsvikTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377999214586-943r0ala0f8ndagrgbsmpqbqomqt4k74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
