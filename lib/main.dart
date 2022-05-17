@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:segurity_anam_app/User/bloc/bloc_user.dart';
 
-void main() {
-  runApp(Tep());
+import 'User/ui/SignInScreen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp().then((value) {
+    runApp(Tep());
+    });
 }
 
 final baseDatos = FirebaseFirestore.instance;
@@ -17,7 +24,7 @@ class Tep extends StatefulWidget {
 }
 
 class Estado extends State<Tep> {
-
+/*
   @override
   void initState() {
     // TODO: implement initState
@@ -27,9 +34,21 @@ class Estado extends State<Tep> {
       });
     });
     super.initState();
+  }*/
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return BlocProvider(
+        child: MaterialApp(
+            title: "Seguridad unam",
+            home: SignInScreen()),
+        bloc: UserBloc());
   }
 
-
+/*
   @override
   Widget build(BuildContext context) => MaterialApp(
     home: Scaffold(
@@ -56,7 +75,7 @@ class Estado extends State<Tep> {
       ),
     ),
 
-  );
+  );*/
 
 }
 
@@ -126,8 +145,9 @@ void actualizar() async{
 void consultar() async{
 
   try{
-    baseDatos.collection("credential").get().then((value) {
+    baseDatos.collection("credencial").get().then((value) {
       value.docs.forEach((element) {
+        print("consultamos algo");
         print(element.data);
       });
     });
