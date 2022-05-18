@@ -9,6 +9,8 @@ class ButtonCustom extends StatelessWidget{
   VoidCallback onPressed;
   String? title;
   String? imagePath;
+  int? ColorR ;
+
   //ImageData? image;
 
   ButtonCustom({
