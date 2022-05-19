@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:segurity_anam_app/Credential/bloc/BlocCredential.dart';
+import 'package:segurity_anam_app/Credential/ui/screen/credentialScreen.dart';
 import 'package:segurity_anam_app/Scanner/bloc/BlocScanner.dart';
 import 'package:segurity_anam_app/Scanner/ui/screens/ScannerScreen.dart';
 
@@ -44,37 +46,47 @@ class _MenuNavigation extends State<MenuNavigation> implements DissmitPather {
         tabBar: CupertinoTabBar(
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.vertical_align_bottom, color: Color.fromARGB(253, 19, 19, 56),),label: 'Descarga'
-            ),
+              icon: Icon(Icons.credit_card_rounded, color: Color.fromARGB(253, 19, 19, 56),), label:  'Scanner'
+
+        ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.credit_card_rounded, color: Color.fromARGB(253, 19, 19, 56),), label:  'Scanner'
+                icon: Icon(Icons.vertical_align_bottom, color: Color.fromARGB(253, 19, 19, 56),),label: 'Descarga'
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle_sharp, color: Color.fromARGB(253, 19, 19, 56),) , label:  'perfil'
             )
           ],
         ), tabBuilder: (BuildContext context, int index) {
+
         switch(index){
-          case 0: return CupertinoTabView(
-              builder:(BuildContext context) {
-                return BlocProvider<BlocScanner>(
-                    child: ScannerMenuScreen(pather: this),
-                    bloc: BlocScanner());
-              }
-          );
-          case 1: return CupertinoTabView(
-            builder:(BuildContext context) => ScannerMenuScreen(),
-          );
+          case 0:
+            return CupertinoTabView(
+                builder:(BuildContext context) {
+                  return BlocProvider<BlocScanner>(
+                      child: ScannerMenuScreen(pather: this),
+                      bloc: BlocScanner());
+                }
+            );
+
+          case 1:
+            return CupertinoTabView(
+                builder:(BuildContext context) {
+
+                  return BlocProvider(
+                      child: CredentialScreenMenu(),
+                      bloc: BlocCredential());
+                }
+            );
           case 2: return CupertinoTabView(
             builder: (BuildContext context) => ScannerMenuScreen(),
           );
           default:
             return CupertinoTabView(
                 builder: (BuildContext context) {
+
                   return ScannerMenuScreen();
                 }
             );
-
         }
       },
 
