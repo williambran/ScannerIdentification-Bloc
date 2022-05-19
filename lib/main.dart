@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:segurity_anam_app/User/bloc/bloc_user.dart';
 
-import 'User/ui/SignInScreen.dart';
+import 'User/ui/screen/SignInScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -3,7 +3,8 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:segurity_anam_app/widgets/ButtonCustom.dart';
 import 'package:segurity_anam_app/widgets/GradientScreen.dart';
 
-import '../bloc/bloc_user.dart';
+import '../../../MenuNavigation.dart';
+import '../../bloc/bloc_user.dart';
 
 
 
@@ -29,7 +30,7 @@ class _SignInScreen extends State<SignInScreen> {
         stream: userBloc?.autStatus,
         builder: (BuildContext contex, AsyncSnapshot snapshot){
           if(snapshot.hasData && snapshot.error == null){
-            return signIn();
+            return MenuNavigation();
           }else{
             return signIn();
           }
@@ -94,9 +95,10 @@ class _SignInScreen extends State<SignInScreen> {
                     imagePath: 'assets/icon/icon_google.png',
                     onPressed: () {
                     print("Se preciono login");
-                   // userBloc!.signOut();
+                    userBloc!.signOut();
                     userBloc!.signIn();
-                    },),
+                    },
+                  ),
                 )
               ],
             ),
