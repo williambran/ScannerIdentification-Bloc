@@ -1,8 +1,8 @@
 
 
 import 'package:segurity_anam_app/Credential/ui/widget/credentialCart.dart';
-import 'package:segurity_anam_app/Data/FirebaseAuthAPi.dart';
-import 'package:segurity_anam_app/Data/FirestoreApi.dart';
+import 'package:segurity_anam_app/Data/Network/FirebaseAuthAPi.dart';
+import 'package:segurity_anam_app/Data/Network/FirestoreApi.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../Data/DB/dbSqlite.dart';

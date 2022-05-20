@@ -104,6 +104,14 @@ class DbSqlite {
 
 
 
+  static Future<List<Map<String, Object?>>?>  searchCredential(int id) async{
+    Database? database = await DbSqlite.instance.create;
+    final credentials = await database?.query("credential",where: "idCuenta = $id");
+    return credentials;
+  }
+
+
+
 }
 
 

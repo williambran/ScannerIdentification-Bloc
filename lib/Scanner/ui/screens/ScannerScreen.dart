@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
+import 'package:lottie/lottie.dart';
 import 'package:segurity_anam_app/Scanner/bloc/BlocScanner.dart';
 import 'package:segurity_anam_app/widgets/ButtonCustom.dart';
 
@@ -23,6 +24,7 @@ class ScannerScreen extends StatefulWidget{
 class _ScannerScreen extends State<ScannerScreen> {
   BlocScanner? scannerBloc;
   String _data = "";
+  String _responseIcon = "https://assets2.lottiefiles.com/packages/lf20_bo8vqwyw.json";
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +66,21 @@ class _ScannerScreen extends State<ScannerScreen> {
             ],
           ),
           Container(
+            alignment: Alignment.topCenter,
+            padding: EdgeInsets.only(top: 60.0),
+            child:Center(
+                child: Lottie.network(_responseIcon)
+            ),
+          ),
+          Container(
             padding: EdgeInsets.only(top: 250.0),
             alignment: Alignment.center,
             child: ButtonCustom(
               title: "Escanear",
               imagePath: 'assets/icon/icon_next.png',
               onPressed: (){
-               // _scan();
-                scannerBloc!.searchId();
+                _scan();
+
               },
             ),
           )
@@ -83,11 +92,31 @@ class _ScannerScreen extends State<ScannerScreen> {
   
   _scan() async {
      await FlutterBarcodeScanner.scanBarcode("#000000", "Cancel", true, ScanMode.BARCODE).then((value) {
-         scannerBloc!.searchId();
-         setState((){
-           _data = value;
+           _data = "";
+           for (int i = 0; i <= 8;i++){
+             _data += value[i];
+           }
+
+           scannerBloc!.searchId(int.parse(_data)).then((value) {
+             if(value){
+               setState((){
+                 _responseIcon = "https://assets9.lottiefiles.com/packages/lf20_atippmse.json";
+                 print("Si se encontro desde la interfaz");
+               });
+
+             }else {
+
+               setState((){
+                 _responseIcon = "https://assets8.lottiefiles.com/packages/lf20_t5ulirqh.json";
+
+                 print("No se encontro desde la interfaz");
+
+               });
+
+             }
+           });
            print("El codigo de barras es :$_data");
-         });
+
      }
      );
   }
