@@ -9,9 +9,14 @@ class BlocCredential implements Bloc {
 
 
   downloadDocument (){
+    print("se en el block");
     credentialDwRepo.consultaRepository();
   }
-
+/*
+  insert(){
+    print("pasamos bloc");
+    credentialDwRepo.insertCredential();
+  }*/
 
 
   @override

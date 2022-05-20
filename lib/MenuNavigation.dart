@@ -74,7 +74,7 @@ class _MenuNavigation extends State<MenuNavigation> implements DissmitPather {
 
                   return BlocProvider(
                       child: CredentialScreenMenu(),
-                      bloc: BlocCredential());
+                      bloc: BlocCredential()  );
                 }
             );
           case 2: return CupertinoTabView(
