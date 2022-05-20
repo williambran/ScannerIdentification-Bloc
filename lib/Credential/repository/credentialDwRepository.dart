@@ -1,5 +1,6 @@
 
 
+import 'package:segurity_anam_app/Credential/ui/widget/credentialCart.dart';
 import 'package:segurity_anam_app/Data/FirebaseAuthAPi.dart';
 import 'package:segurity_anam_app/Data/FirestoreApi.dart';
 import 'package:sqflite/sqflite.dart';
@@ -35,18 +36,47 @@ class CredentialDwRepository {
     });
   }
 
-  saveDataBase(List<CredentialModel> arrCredential) async {
-
-    arrCredential.forEach((element) {
-
-      print("salvando en DB" + element.name);
-    });
-  }
 
 
   insertCredential(List<CredentialModel> arrCredentials) async {
     DbSqlite.insertCredentials(arrCredentials);
   }
 
+
+  //Fatal, pero bueno se hace lo que se puede
+  Future<List<CredentialCart>> getCredentials() async {
+    List<CredentialCart> credentials = <CredentialCart>[];
+    await DbSqlite.getCredentials().then((value) {
+      value.forEach((element) {
+        credentials.add(CredentialCart(
+          credentialModel: (CredentialModel(
+            name: element.name,
+            activo: element.activo,
+            idCuenta: element.idCuenta,
+            processing: element.processing
+          )),
+        ));
+      });
+    });
+    print("Desdel repositoryio");
+    print(credentials.length);
+   return credentials;
+  }
+
+
+  Future<bool> deleteCredentials () async {
+    bool sera = false;
+      await DbSqlite.deleteCredentials().then((value) {
+        if(value > 0){
+          print("Se eliminaron registro repo");
+          sera=  true;
+        }else {
+          print("no se  eliminaron registro");
+          sera = false;
+        }
+      });
+      return sera;
+
+  }
 
 }
