@@ -66,7 +66,8 @@ class DbSqlite {
     return ;
   }
   static Future<void> insertCredentials(List<CredentialModel> arrCredentials) async {
-    //  deleteCredentials();
+      deleteCredentials();
+
     Database? database = await DbSqlite.instance.create;
     arrCredentials.forEach((element) {
       print("${element.idCuenta}, ${element.name},${element.processing},${element.activo}");
@@ -74,17 +75,32 @@ class DbSqlite {
         print("el valor al insertar $value");
       });
     });
+
     return ;
   }
 
-  static Future<void> deleteCredentials() async {
+  static Future<int> deleteCredentials() async {
     Database? database = await DbSqlite.instance.create;
-    database?.rawInsert("DELETE FROM credential" ).then((value) {
-      print("Se eliminatorn $value");
-    });
-    return ;
+    return database!.rawInsert("DELETE FROM credential" );
+
+
   }
 
+
+  static Future<List<CredentialModel>> getCredentials() async{
+    Database? database = await DbSqlite.instance.create;
+    final List<Map<String, dynamic>> credentials = await database!.query("credential");
+
+
+     return  List.generate(
+          credentials.length,
+              (i) => CredentialModel(
+                  idCuenta: credentials[i]['idCuenta'],
+                  name: credentials[i]['nombre'],
+                  activo:credentials[i]['activo'],
+                  processing: credentials[i]['processing']
+              ));
+  }
 
 
 

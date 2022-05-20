@@ -32,4 +32,15 @@ class CredentialModel{
     return {'idCuenta': idCuenta, 'nombre': name, 'activo':activo,'processing': processing};
   }
 
+   CredentialModel fromList(Map<String, dynamic> json){
+
+
+     return CredentialModel(
+         idCuenta:  json['idCuenta'],
+         name: json['nombre'],
+         activo: json['activo'],
+         processing: json['processing']
+     );
+   }
+
 }
