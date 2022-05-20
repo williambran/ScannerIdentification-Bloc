@@ -1,11 +1,13 @@
 
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class CredentialModel{
-  final String idCuenta;
-  final String name;
-  final bool activo;
-  final bool? processing;
+   int idCuenta;
+   String name;
+   int activo;
+   int? processing;
 
 
   CredentialModel({
@@ -14,5 +16,20 @@ class CredentialModel{
     required this.activo,
     this.processing
   });
+
+  factory CredentialModel.fromJson( QueryDocumentSnapshot<Map<String, dynamic>> json){
+
+
+    return CredentialModel(
+        idCuenta: json['idCuenta'],
+        name: json['nombre'],
+        activo: json['activo'],
+        processing: json['processing']
+    );
+  }
+
+  Map<String,dynamic> toMap() {
+    return {'idCuenta': idCuenta, 'nombre': name, 'activo':activo,'processing': processing};
+  }
 
 }

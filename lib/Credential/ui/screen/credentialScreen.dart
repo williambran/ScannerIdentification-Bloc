@@ -18,6 +18,15 @@ class _CredentialScreen extends State<CredentialScreenMenu>{
 
   BlocCredential? blocCredential;
 
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
   @override
   Widget build(BuildContext context) {
     blocCredential = BlocProvider.of(context);
@@ -55,7 +64,8 @@ class _CredentialScreen extends State<CredentialScreenMenu>{
                     imagePath: 'assets/icon/icon_download.png' ,
                     title: "Descargar",
                     onPressed: (){
-
+                      blocCredential?.downloadDocument();
+                      print("se clickeo");
                     })
               ],
             )
