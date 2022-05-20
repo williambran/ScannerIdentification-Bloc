@@ -75,7 +75,6 @@ class _CredentialScreenMenu extends State<CredentialScreenMenu>{
                             print("se eliminaron registro");
                           }else {
                             print("no se eliminaron registro");
-
                           }
                         });
 

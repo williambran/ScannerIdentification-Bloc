@@ -17,8 +17,8 @@ class BlocScanner implements Bloc{
      streamController.add(true);
   }
 
-   searchId() {
-      scannerRepository.consultaRepository();
+   Future<bool> searchId(int idCredential) {
+    return  scannerRepository.searchCredential(idCredential);
   }
 
 

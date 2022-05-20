@@ -2,7 +2,7 @@
 
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:segurity_anam_app/Data/FirebaseAuthAPi.dart';
+import 'package:segurity_anam_app/Data/Network/FirebaseAuthAPi.dart';
 
 class AuhtRepository{
   final _firebaseAuth = FirebaseAuthAPI();
