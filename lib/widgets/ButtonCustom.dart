@@ -11,7 +11,7 @@ class ButtonCustom extends StatelessWidget{
   String? imagePath;
   int? ColorR ;
 
-  //ImageData? image;
+
 
   ButtonCustom({
     this.title,
