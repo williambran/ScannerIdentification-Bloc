@@ -29,7 +29,7 @@ class _CredentialScreenMenu extends State<CredentialScreenMenu>{
     return Scaffold(
       body: Stack(
         children: [
-          GradientScreen(height: 270.0),
+          GradientScreen(height: 270.0,withRectangles: true),
           Container(
             alignment: Alignment.topCenter,
             padding: EdgeInsets.only(top: 100.0),
@@ -37,7 +37,7 @@ class _CredentialScreenMenu extends State<CredentialScreenMenu>{
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 30.0
+                    fontSize: 32.0
                 )
             ),
           ),

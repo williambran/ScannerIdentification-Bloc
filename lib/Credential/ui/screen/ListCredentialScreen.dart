@@ -36,7 +36,7 @@ class _ListCredentialScreen extends State<ListCredentialScreen> {
     return Scaffold(
       body: Stack(
       children: [
-        GradientScreen(height: 100.0,),
+        GradientScreen(height: 100.0,withRectangles: true),
         Container(
           padding: EdgeInsets.only(top: 50.0),
           child: ListView(

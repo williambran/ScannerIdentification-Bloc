@@ -86,7 +86,7 @@ class _ScannerMenuScreen extends State<ScannerMenuScreen>{
     return Scaffold(
       body: Stack(
         children: [
-          GradientScreen(height: 270.0),
+          GradientScreen(height: 270.0,withRectangles: true),
           Container(
             padding: EdgeInsets.only(top: 100.0),
             alignment: Alignment.topCenter,

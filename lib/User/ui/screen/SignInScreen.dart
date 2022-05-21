@@ -47,7 +47,7 @@ class _SignInScreen extends State<SignInScreen> {
       body: Stack(
        // alignment: Alignment.center,
         children: [
-          GradientScreen(),
+          GradientScreen(withRectangles: false),
           Container(
 
             padding: EdgeInsets.only(top: 180.0,left: 20.0,right: 20.0),

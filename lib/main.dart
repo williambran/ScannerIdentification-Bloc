@@ -24,17 +24,7 @@ class Tep extends StatefulWidget {
 }
 
 class Estado extends State<Tep> {
-/*
-  @override
-  void initState() {
-    // TODO: implement initState
-    Firebase.initializeApp().whenComplete(() {
-      setState(() {
-        // baseDatos = FirebaseFirestore.instance;
-      });
-    });
-    super.initState();
-  }*/
+
 
 
 
