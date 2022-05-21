@@ -7,78 +7,112 @@ class GradientScreen extends StatelessWidget {
 
   String? title = "Algun titulo";
   double? height = 0.0;
+  bool? withRectangles = false;
+  double? screenHeight;
+  double? screenWidht;
 
-
-  GradientScreen({this.title, this.height});
+  GradientScreen({this.title, this.height, this.withRectangles});
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidht = MediaQuery.of(context).size.width;
+     screenHeight = MediaQuery.of(context).size.height;
+     screenWidht = MediaQuery.of(context).size.width;
 
     height ??= screenHeight;
-    Color white = Color.fromARGB(243, 244, 186, 100);
-    /*
-    *       Color.fromARGB(204, 168, 244, 252),
-            Color.fromARGB(232, 175, 162, 237)
-    * */
+
+    if(withRectangles!){
+      return gradianteWithRectangles();
+    }else {
+      return gradianteWithoutRectangles();
+    }
+
+  }
+
+  Widget gradianteWithRectangles(){
     return Container(
       width: screenWidht,
       height: height,
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(235, 97, 8, 83),
-            Color.fromARGB(253, 19, 19, 56)
-          ],
-          begin: FractionalOffset(0.1, 0.0),
-          end: FractionalOffset(1.0,0.6),
-            stops: [0.0,0.7],
-            tileMode: TileMode.clamp
-        )
+          gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(235, 97, 8, 83),
+                Color.fromARGB(253, 19, 19, 56)
+              ],
+              begin: FractionalOffset(0.1, 0.0),
+              end: FractionalOffset(1.0,0.6),
+              stops: [0.0,0.7],
+              tileMode: TileMode.clamp
+          )
       ),
       child: Container(
-        padding: EdgeInsets.only(right: 390.0,top: 100.0),
-       // alignment: Alignment.topLeft,
-        decoration: BoxDecoration(),
+          padding: EdgeInsets.only(right: 390.0,top: 100.0),
+          // alignment: Alignment.topLeft,
+          decoration: BoxDecoration(),
 
-        child: Stack(
-          children: [
-            FittedBox(
-              fit: BoxFit.none,
-              alignment: Alignment(0.0, -0.5),
-              child:
-              Container(
-                // color: Color.fromRGBO(245, 206, 67, 0.0),
-                // alignment: Alignment.center,
-                width: 200.0,
-                height: 300.0,
-                child: CustomPaint(
+          child: Stack(
+            children: [
+              FittedBox(
+                fit: BoxFit.none,
+                alignment: Alignment(0.0, -0.5),
+                child:
+                Container(
+                  // color: Color.fromRGBO(245, 206, 67, 0.0),
+                  // alignment: Alignment.center,
+                  width: 200.0,
+                  height: 300.0,
+                  child: CustomPaint(
 
-                  painter: RectanglePainter(),
+                    painter: RectanglePainter() ,
+                  ),
                 ),
               ),
-            ),
-            FittedBox(
-              fit: BoxFit.none,
-              alignment: Alignment(-4.0, -3.7),
-              child:
-              Container(
-                // color: Color.fromRGBO(245, 206, 67, 0.0),
-                // alignment: Alignment.center,
-                width: 200.0,
-                height: 300.0,
-                child: CustomPaint(
+              FittedBox(
+                fit: BoxFit.none,
+                alignment: Alignment(-4.0, -3.7),
+                child:
+                Container(
+                  // color: Color.fromRGBO(245, 206, 67, 0.0),
+                  // alignment: Alignment.center,
+                  width: 200.0,
+                  height: 300.0,
+                  child: CustomPaint(
 
-                  painter: RectanglePainterBlue(),
+                    painter: RectanglePainterBlue(),
+                  ),
                 ),
               ),
-            ),
-          ],
-        )
+            ],
+          )
 
+
+
+      ),
+    );
+  }
+
+
+  Widget gradianteWithoutRectangles(){
+    return Container(
+      width: screenWidht,
+      height: height,
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(235, 97, 8, 83),
+                Color.fromARGB(253, 19, 19, 56)
+              ],
+              begin: FractionalOffset(0.1, 0.0),
+              end: FractionalOffset(1.0,0.6),
+              stops: [0.0,0.7],
+              tileMode: TileMode.clamp
+          )
+      ),
+      child: Container(
+          padding: EdgeInsets.only(right: 390.0,top: 100.0),
+          // alignment: Alignment.topLeft,
+          decoration: BoxDecoration(),
 
 
       ),
