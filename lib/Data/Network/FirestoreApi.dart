@@ -13,10 +13,6 @@ class FirestoreApi {
 
   Future<Stream<QuerySnapshot<Map<String, dynamic>>>> consultar() async{
 
-   /* var dataCredential = baseDatos.collection("credencil").get();
-
-    return dataCredential;
-    */
     var  prueba = baseDatos.collection("credencial").snapshots();
     return prueba;
 

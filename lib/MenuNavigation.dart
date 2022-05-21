@@ -6,8 +6,10 @@ import 'package:segurity_anam_app/Credential/bloc/BlocCredential.dart';
 import 'package:segurity_anam_app/Credential/ui/screen/credentialScreen.dart';
 import 'package:segurity_anam_app/Scanner/bloc/BlocScanner.dart';
 import 'package:segurity_anam_app/Scanner/ui/screens/ScannerScreen.dart';
+import 'package:segurity_anam_app/User/bloc/bloc_user.dart';
 
 import 'Scanner/ui/screens/ScannerMenuScreen.dart';
+import 'User/ui/screen/ProfileUser.dart';
 import 'interface/dismitPatther.dart';
 
 
@@ -78,7 +80,12 @@ class _MenuNavigation extends State<MenuNavigation> implements DissmitPather {
                 }
             );
           case 2: return CupertinoTabView(
-            builder: (BuildContext context) => ScannerMenuScreen(),
+            builder: (BuildContext context) {
+              return BlocProvider(
+                child: ProfileUser(),
+                bloc: UserBloc(),
+              );
+            },
           );
           default:
             return CupertinoTabView(
