@@ -26,7 +26,6 @@ class _ListCredentialScreen extends State<ListCredentialScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-  //  blocCredential = BlocProvider.of(context);
     return listCredentials();
   }
 

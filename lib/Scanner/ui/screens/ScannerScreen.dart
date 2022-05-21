@@ -4,7 +4,6 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:lottie/lottie.dart';
 import 'package:segurity_anam_app/Scanner/bloc/BlocScanner.dart';
 import 'package:segurity_anam_app/widgets/ButtonCustom.dart';
-
 import '../../../interface/dismitPatther.dart';
 
 
