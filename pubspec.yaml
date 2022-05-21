@@ -107,4 +107,8 @@ flutter:
     - assets/icon/icon_google.png
     - assets/icon/icon_next.png
     - assets/icon/icon_download.png
+    - assets/animations/scanner_credential.json
+    - assets/animations/success.json
+    - assets/animations/failure.json
+    - assets/animations/search.json
 
