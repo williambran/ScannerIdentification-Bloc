@@ -100,7 +100,7 @@ class _ScannerMenuScreen extends State<ScannerMenuScreen>{
                   ),
                 ),
                 Center(
-                    child: Lottie.network('https://assets9.lottiefiles.com/packages/lf20_NzxWL9.json')
+                    child: Lottie.asset('assets/animations/scanner_credential.json')
                 ),
                 ButtonCustom(imagePath: 'assets/icon/icon_next.png', title: "       Empezar" ,onPressed: (){
                   print("Comenzar a escanear");

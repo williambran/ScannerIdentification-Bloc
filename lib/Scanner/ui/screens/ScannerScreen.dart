@@ -24,7 +24,7 @@ class ScannerScreen extends StatefulWidget{
 class _ScannerScreen extends State<ScannerScreen> {
   BlocScanner? scannerBloc;
   String _data = "";
-  String _responseIcon = "https://assets2.lottiefiles.com/packages/lf20_bo8vqwyw.json";
+  String _responseIcon = "assets/animations/search.json";
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _ScannerScreen extends State<ScannerScreen> {
             alignment: Alignment.topCenter,
             padding: EdgeInsets.only(top: 60.0),
             child:Center(
-                child: Lottie.network(_responseIcon,height: 250.0,width: 250.0)
+                child: Lottie.asset(_responseIcon,height: 250.0,width: 250.0)
             ),
           ),
           Container(
@@ -100,14 +100,14 @@ class _ScannerScreen extends State<ScannerScreen> {
            scannerBloc!.searchId(int.parse(_data)).then((value) {
              if(value){
                setState((){
-                 _responseIcon = "https://assets9.lottiefiles.com/packages/lf20_atippmse.json";
+                 _responseIcon = "assets/animations/success.json";
                  print("Si se encontro desde la interfaz");
                });
 
              }else {
 
                setState((){
-                 _responseIcon = "https://assets8.lottiefiles.com/packages/lf20_t5ulirqh.json";
+                 _responseIcon = "assets/animations/failure.json";
 
                  print("No se encontro desde la interfaz");
 
