@@ -69,7 +69,7 @@ class _ScannerScreen extends State<ScannerScreen> {
             alignment: Alignment.topCenter,
             padding: EdgeInsets.only(top: 60.0),
             child:Center(
-                child: Lottie.network(_responseIcon)
+                child: Lottie.network(_responseIcon,height: 250.0,width: 250.0)
             ),
           ),
           Container(
